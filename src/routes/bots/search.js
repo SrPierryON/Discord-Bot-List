@@ -15,7 +15,7 @@ route.get("/", async (req, res) => {
         else if (bot.description.toLowerCase().includes(search)) return true;
         else return false;
     });
-    if (!found) return res.send({ error: "No bots found for this search" });
+    if (!found) return res.send({ error: "Nenhum bot encontrado para esta pesquisa" });
 
     res.render("search", {
         cards: found,
