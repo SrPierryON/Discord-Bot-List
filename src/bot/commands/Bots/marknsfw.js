@@ -14,6 +14,6 @@ module.exports = class extends Command {
         if (!user || !user.bot) return message.channel.send(`Ping a **bot** to mark as nsfw.`);
         let bot = await Bots.findOne({botid: user.id});
         await Bots.updateOne({ botid: user.id }, {$set: { nsfw: !bot.nsfw } })
-        message.channel.send(`👍 \`${user.tag}\` is marked as ${bot.nsfw ? "not" : ""} NSFW`)
+        message.channel.send(`👍 \`${user.tag}\` está marcado como ${bot.nsfw ? "not" : ""} NSFW`)
     }
 };
