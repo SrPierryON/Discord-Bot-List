@@ -10,10 +10,10 @@ module.exports = class extends Command {
 
 	constructor(...args) {
 		super(...args, {
-			aliases: ['commands', 'cmd', 'cmds'],
+			aliases: ['commands', 'cmd', 'cmds', 'ajuda'],
 			guarded: true,
 			description: (language) => language.get('COMMAND_HELP_DESCRIPTION'),
-			usage: '(Command:command)'
+			usage: '(Comando:comando)'
 		});
 
 		this.createCustomResolver('command', (arg, possible, message) => {
@@ -41,7 +41,7 @@ module.exports = class extends Command {
 			const previousHandler = this.handlers.get(message.author.id);
 			if (previousHandler) previousHandler.stop();
 
-			const handler = await (await this.buildDisplay(message)).run(await message.send('Loading Commands...'), {
+			const handler = await (await this.buildDisplay(message)).run(await message.send('Comandos de carregamento...'), {
 				filter: (reaction, user) => user.id === message.author.id,
 				time
 			});
@@ -74,7 +74,7 @@ module.exports = class extends Command {
 		const color = message.member.displayColor;
 		for (const [category, list] of commands) {
 			display.addPage(new MessageEmbed()
-				.setTitle(`${category} Commands`)
+				.setTitle(`${category} Comandos`)
 				.setColor(color)
 				.setDescription(list.map(this.formatCommand.bind(this, message, prefix, true)).join('\n'))
 			);
