@@ -22,8 +22,8 @@ route.patch("/:id", auth, async (req, res) => {
   let channel = await req.app.get('client').channels.cache.get(server.like_log);
   let webhook = (await channel.fetchWebhooks()).first();
   if (!webhook) 
-    webhook = await channel.createWebhook('Discord Bot List')
-  await webhook.send(`<@${req.user.id}> (${userProfile.tag}) liked <@${req.params.id}>`);
+    webhook = await channel.createWebhook('DiscList')
+  await webhook.send(`<@${req.user.id}> (${userProfile.tag}) votou em <@${req.params.id}>`);
 
   // Custom webhook
   if (bot.webhook) {
