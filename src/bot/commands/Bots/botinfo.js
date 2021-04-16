@@ -12,11 +12,11 @@ module.exports = class extends Command {
     }
 
     async run(message, [user]) {
-        if (!user || !user.bot) return message.channel.send(`Ping a **bot** to get info about.`);
-        if (user.id === message.client.user.id) return message.channel.send(`-_- No`);
+        if (!user || !user.bot) return message.channel.send(`Dê um ping em um **bot** para obter informações sobre.`);
+        if (user.id === message.client.user.id) return message.channel.send(`-_- Não`);
 
         const bot = await Bots.findOne({ botid: user.id }, { _id: false })
-        if (!bot) return message.channel.send(`Bot not found.`);
+        if (!bot) return message.channel.send(`Bot não encontrado.`);
         let servers;
         if (bot.servers[bot.servers.length - 1])
             servers = bot.servers[bot.servers.length - 1].count;
@@ -28,14 +28,14 @@ module.exports = class extends Command {
             e.setColor(0x6b83aa)
             e.setAuthor(bot.username, botUser.displayAvatarURL({format: "png", size: 256}), bot.invite)
             e.setDescription(bot.description)
-            e.addField(`Prefix`, bot.prefix ? bot.prefix : "Unknown", true)
-            e.addField(`Support Server`, !bot.support ? "Not Added" : `[Click Here](${bot.support})`, true)
+            e.addField(`Prefixo`, bot.prefix ? bot.prefix : "Unknown", true)
+            e.addField(`Servidor de Suporte`, !bot.support ? "Not Added" : `[Click Here](${bot.support})`, true)
             e.addField(`Website`, !bot.website ? "Not Added" : `[Click Here](${bot.website})`, true)
             e.addField(`Github`, !bot.github ? "Not Added" : `[Click Here](${bot.github})`, true)
-            e.addField(`Likes`, `${bot.likes || 0} Likes`, true)
-            e.addField(`Server Count`, `${servers || 0} Servers`, true)
-            e.addField(`Owner`, `<@${bot.owners.primary}>`, true)
-            e.addField(`State`, bot.state, true)
+            e.addField(`Votos`, `${bot.likes || 0} Likes`, true)
+            e.addField(`Contagem de servidores`, `${servers || 0} Servers`, true)
+            e.addField(`Developer`, `<@${bot.owners.primary}>`, true)
+            e.addField(`Estado`, bot.state, true)
         message.channel.send(e);
     }
 };
