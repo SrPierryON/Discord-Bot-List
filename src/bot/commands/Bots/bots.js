@@ -18,7 +18,7 @@ module.exports = class extends Command {
 
         let bots = await Bots.find({ $or: [{ "owners.primary": person.id },{ "owners.additional": person.id }], state: { $ne: "deleted" } }, { _id: false });
 
-        if (bots.length === 0) return message.channel.send(`\`${person.tag}\` has no bots. Add one: <${domain_with_protocol}/add/>.`)
+        if (bots.length === 0) return message.channel.send(`\`${person.tag}\` não tem bots. Adicione um: <${domain_with_protocol}/add/>.`)
         var cont = ``
         var un = false;
         for (let i = 0; i < bots.length; i++) {
@@ -32,7 +32,7 @@ module.exports = class extends Command {
             .setTitle(`${person.username}#${person.discriminator}'s bots`)
             .setDescription(cont)
             .setColor(0x6b83aa)
-        if (un) e.setFooter(`Bots with strikethrough are unverified.`)
+        if (un) e.setFooter(`Bots tachados não foram verificados.`)
         message.channel.send(e)
     }
 
