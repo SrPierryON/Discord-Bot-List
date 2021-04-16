@@ -5,7 +5,7 @@ module.exports = class extends Command {
         super(...args, {
             runIn: ['text'],
             aliases: ["pong", "latency"],
-            description: "Check the bot's latency",
+            description: "Verifique a latência do bot",
         });
     }
 
