@@ -19,7 +19,7 @@ const client = new Client({
 
 //Bot Status
 client.once('ready', () => {
-    client.user.setActivity('Bots', { type: "WATCHING" });
+    client.user.setActivity('🤖 » Vigiando os bots da DiscList', { type: "WATCHING" });
 });
 
 module.exports.init = async (token) => {
