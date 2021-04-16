@@ -13,7 +13,7 @@ body
                     img(src='/assets/img/admin.png' title='Admin')
                     |  Admin
     br
-    a.button(href='/add') Add a bot
+    a.button(href='/add') Adicionar um bot
     #cards
         each val, i in cards
             div.large.card
@@ -26,22 +26,22 @@ body
                         i.far.fa-heart
                         | #{val.likes || 0}
                 p.desc #{val.description}
-                a.small.button(href=`/bots/${val.botid}`) View Bot
+                a.small.button(href=`/bots/${val.botid}`) Ver bot
                 if (val.state == "deleted")
-                    a.small.half.half-left.button(href=`/bots/resubmit/${val.botid}/`) Resubmit
+                    a.small.half.half-left.button(href=`/bots/resubmit/${val.botid}/`) Reenviar
                     a.small.half.half-right.button.button-red.delete(href="#confirm" data-id=val.botid data-name=val.username)
                         |  Delete
                 else
-                    a.small.half.half-left.button(href=`/bots/edit/${val.botid}/`) Edit Bot
+                    a.small.half.half-left.button(href=`/bots/edit/${val.botid}/`) Editar Bot
                     a.small.half.half-right.button.button-red.delete(href="#confirm" data-id=val.botid data-name=val.username)
-                        |  Delete
+                        |  Deleta
     br
     span.center
-        a(href='/join') Join Server
+        a(href='/join') Entrar no servidor
         |   |  
-        a(href='/add') Add a bot
+        a(href='/add') Adicionar um bot
         |   |  
-        a(href='/api/theme') Toggle theme
+        a(href='/api/theme') Alternar tema
         |   |  
-        a(href='/logout') Logout
+        a(href='/logout') Sair
         br
