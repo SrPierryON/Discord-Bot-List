@@ -17,10 +17,10 @@ module.exports = class extends Command {
         let bots = await Bots.find({ state: "unverified" }, { _id: false })
 
         bots.forEach(bot => { cont += `<@${bot.botid}> : [Invite](https://discord.com/oauth2/authorize?client_id=${bot.botid}&scope=bot&guild_id=${id}&permissions=0)\n` })
-        if (bots.length === 0) cont = "Queue is empty";
+        if (bots.length === 0) cont = "Fila está vazia";
 
         let embed = new MessageEmbed()
-            .setTitle('Queue')
+            .setTitle('Fila')
             .setColor(0x6b83aa)
             .setDescription(cont)
         message.channel.send(embed)
