@@ -15,7 +15,7 @@ $( document ).ready(async function() {
         await Swal.fire({
             title: `Excluindo ${$(this).attr("data-name")}`,
             icon: 'warning',
-            html: `Modelo <u>${$(this).attr("data-name")}</u> to confirm`,
+            html: `Modelo <u>${$(this).attr("data-name")}</u> confirmar`,
             showCancelButton: true,
             input: "text",
             confirmButtonText: `Excluir`,
